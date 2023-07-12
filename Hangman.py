@@ -3,7 +3,7 @@
 import random
 
 def select_word():
-    openfile = open('words.txt', 'r')
+    openfile = open('words.txt', 'r') # words.txt file was dowloaded from: https://github.com/Xethron/Hangman/blob/master/words.txt
     infile = openfile.read()
     openfile.close()
     words = infile.split('\n')
@@ -15,7 +15,6 @@ def select_word():
 def checkword():
     guess_word = select_word()
     # print(guess_word)
-    hidden_word = guess_word[:]
     hidden_word = ['*' for x in hidden_word]
     user_input_record = []
     numberoftries = 6
@@ -52,9 +51,8 @@ def main():
         if user_input.lower() == 'y':
             checkword()
             user_input = input('Do you want to play again? (Y or N) ')
-        elif user_input.lower() == 'n':
+        elif user_input.lower() != 'y':
             print('Thanks for playing!')
-            break
 
 main()
 
